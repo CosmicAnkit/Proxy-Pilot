@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Switcher</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: rgba(255, 255, 255, 0.9); /* Light background with transparency */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 300px;
+            background-color: rgba(225, 212, 233, 0.9); /* Light Purple Background with transparency */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #673ab7; /* Dark Purple Text Color */
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 1px;
+            white-space: nowrap; /* Prevent line break */
+        }
+
+        h3 {
+            font-size: 15px;
+            margin-bottom: 10px;
+            color: #9169d7; /* Dark Purple Text Color */
+            text-align: center;
+            font-weight: bold;
+            letter-spacing: 1px;
+            white-space: nowrap; /* Prevent line break */
+        }
+
+        .input-group {
+            margin-bottom: 30px; /* Increased spacing */
+            position: relative;
+        }
+
+        label {
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #512da8; /* Medium Purple Text Color */
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            pointer-events: none; /* Allow click through label */
+            transition: 0.3s;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 5px;
+            border: none;
+            border-bottom: 1px solid #9c27b0; /* Darker Purple Border */
+            box-sizing: border-box;
+            font-size: 14px;
+            outline: none;
+            background: transparent; /* Transparent background */
+            margin-top: 10px; /* Adjusted spacing */
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+            transform: translateY(-100%) scale(0.8);
+            color: #9c27b0; /* Darker Purple Text Color when active */
+        }
+
+        #applyButton {
+            width: 100%;
+            padding: 12px;
+            background-color: #9c27b0; /* Darker Purple Button Color */
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.5s ease-out, transform 0.2s ease-out;
+        }
+
+        #applyButton.clicked {
+            background-color: #7b1fa2; /* Slightly Darker Purple on Click */
+        }
+
+        #statusText {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #673ab7; /* Dark Purple Text Color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Proxy Pilot </h2>
+        <h3>Your Ultimate Proxy Guide</h3>
+        <div class="input-group">
+            <input type="text" id="proxyInput" placeholder=" ">
+            <label for="proxyInput">Proxy</label>
+        </div>
+        <div class="input-group">
+            <input type="text" id="portInput" placeholder=" ">
+            <label for="portInput">Port</label>
+        </div>
+        <button id="applyButton">Enable Proxy</button>
+        <div id="statusText">Proxy Disabled</div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
